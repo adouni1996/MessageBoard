@@ -1,0 +1,52 @@
+.main {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    h1 {
+        text-align: center;
+    }
+    .dialog {
+        min-width: 350px;
+    }
+    .setting {
+        display: flex;
+        justify-content: space-between;
+        .block {
+            position: relative;
+            .el-color-picker {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+    .el-textarea {
+        textarea {
+            padding: 15px;
+        }
+    }
+    .subbtn {
+        margin: 20px auto;
+        text-align: right;
+    }
+    .el-card {
+        margin-top: 10px;
+        .addtime {
+            margin-top: 10px;
+            font-size: 14px;
+            color: darkgray;
+        }
+        .el-icon-delete {
+            float: right;
+            cursor: pointer;
+            &:hover {
+                color: black;
+            }
+        }
+    }
+}
+
+.el-tabs {
+    max-width: 600px;
+    margin: 20px auto 50px;
+}
