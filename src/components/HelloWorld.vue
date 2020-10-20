@@ -26,30 +26,17 @@
     </el-dialog>
     <el-card v-for="item in datamsg" :key="item.id" shadow="hover">
       <div :style="'color:'+item.color">{{item.msg}}</div>
-      <div class="addtime">
+      <span class="addtime">
         <span>{{item.adddata_time | dateformat('YYYY-MM-DD HH:mm:ss')}}</span>
-        <span v-if='showdel'>
-          <el-popconfirm
-            confirmButtonText="不删啦"
-            cancelButtonText="狠心删除"
-            icon="el-icon-info"
-            :hideIcon="true"
-            iconColor="red"
-            title="你真的忍心删除别人的评论吗？"
-            @onCancel="deltest(item._id)"
-          >
-            <i class="el-icon-delete" slot="reference"></i>
-          </el-popconfirm>
-        </span>
-      </div>
-      <Reply />
+      </span>
+      <Reply :showdel='showdel' :id='item.id' :gettest='gettest' />
     </el-card>
   </div>
 </template>
 
 <script>
-import { getdata, updata, deldata } from "@/api/getdata";
-import Reply from '@/components/Reply.vue'
+import { getdata, updata } from "@/api/getdata";
+import Reply from "@/components/Reply.vue";
 export default {
   name: "HelloWorld",
   props: {
@@ -58,8 +45,8 @@ export default {
       default: false,
     },
   },
-  components:{
-    Reply
+  components: {
+    Reply,
   },
   data() {
     return {
@@ -105,14 +92,6 @@ export default {
       const res = await getdata();
       this.datamsg = res.data.data.reverse();
       this.textarea = "";
-    },
-    async deltest(_id) {
-      const res = await deldata(_id);
-      this.$message({
-        message: res.data.meta.msg,
-        type: "success",
-      });
-      this.gettest();
     },
   },
 };

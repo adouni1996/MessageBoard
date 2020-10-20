@@ -32,24 +32,38 @@
     .el-card {
         margin-top: 10px;
         .addtime {
+            display: inline-block;
             margin-top: 10px;
             font-size: 14px;
             color: darkgray;
         }
-        .el-icon-delete {
-            float: right;
-            cursor: pointer;
-            &:hover {
-                color: black;
-            }
-        }
         .reply {
-            margin-top: 10px;
+            .delbtn {
+                float: right;
+                margin: 10px 0 0 10px;
+                .el-icon-delete {
+                    cursor: pointer;
+                    &:hover {
+                        color: black;
+                    }
+                }
+            }
             .replybtn {
                 cursor: pointer;
+                float: right;
+                margin: 15px 0 0 10px;
+                display: inline-block;
             }
             .replycomon {
                 margin-top: 10px;
+                .btn {
+                    margin-top: 10px;
+                    text-align: right;
+                    .el-button {
+                        font-size: 12px;
+                        padding: 10px 15px;
+                    }
+                }
             }
         }
     }
@@ -58,4 +72,12 @@
 .el-tabs {
     max-width: 600px;
     margin: 20px auto 50px;
+}
+
+i {
+    font-size: 14px;
+    color: darkgray;
+    &:hover {
+        color: black;
+    }
 }
