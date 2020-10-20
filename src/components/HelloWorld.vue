@@ -42,12 +42,14 @@
           </el-popconfirm>
         </span>
       </div>
+      <Reply />
     </el-card>
   </div>
 </template>
 
 <script>
 import { getdata, updata, deldata } from "@/api/getdata";
+import Reply from '@/components/Reply.vue'
 export default {
   name: "HelloWorld",
   props: {
@@ -55,6 +57,9 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+  components:{
+    Reply
   },
   data() {
     return {
