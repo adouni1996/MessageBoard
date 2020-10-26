@@ -31,10 +31,10 @@ export const getdata = () => {
 /***
  * 删除消息
  */
-export const deldata = (_id) => {
+export const deldata = (id) => {
     return new Promise((resolve, reject) => {
         axios.post('/msg/del', {
-                _id
+                id
             })
             .then(res => { resolve(res) })
             .catch(error => { reject(error) })

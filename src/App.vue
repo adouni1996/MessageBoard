@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Tabs></Tabs>
+    <el-backtop ></el-backtop>
   </div>
 </template>
 
