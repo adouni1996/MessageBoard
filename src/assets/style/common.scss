@@ -66,6 +66,12 @@
                 }
             }
         }
+        .comment {
+            font-size: 12px;
+            margin-top: 10px;
+            border-top: solid 1px #EBEEF5;
+            padding: 10px 10px 0;
+        }
     }
 }
 
@@ -80,4 +86,24 @@ i {
     &:hover {
         color: black;
     }
+}
+
+//动画设置
+.flip-list-item {
+    transition: all 1s;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.flip-list-enter,
+.flip-list-leave-to
+/* .flip-list-leave-active for below version 2.1.8 */
+
+{
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.flip-list-leave-active {
+    position: absolute;
 }

@@ -1,5 +1,7 @@
 <template>
+
   <div class="main">
+    
     <h1>奇奇怪怪的留言板你敢信？</h1>
     <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea" style="color:red"></el-input>
     <div class="setting">
@@ -24,19 +26,23 @@
         <el-button type="primary" @click="addtest()">确 定</el-button>
       </span>
     </el-dialog>
-    <el-card v-for="item in datamsg" :key="item.id" shadow="hover">
-      <div :style="'color:'+item.color">{{item.msg}}</div>
-      <span class="addtime">
-        <span>{{item.adddata_time | dateformat('YYYY-MM-DD HH:mm:ss')}}</span>
-      </span>
-      <Reply :showdel='showdel' :id='item.id' :gettest='gettest' />
-    </el-card>
+    <transition-group name="flip-list">
+      <el-card v-for="item in datamsg" :key="item.id" shadow="hover">
+        <div :style="'color:'+item.color">{{item.msg}}</div>
+        <span class="addtime">
+          <span>{{item.adddata_time | dateformat('YYYY-MM-DD HH:mm:ss')}}</span>
+        </span>
+        <Reply :showdel='showdel' :id='item.id' :gettest='gettest' />
+        <Comment></Comment>
+      </el-card>
+    </transition-group>
   </div>
 </template>
 
 <script>
 import { getdata, updata } from "@/api/getdata";
 import Reply from "@/components/Reply.vue";
+import Comment from "@/components/Comment.vue"
 export default {
   name: "HelloWorld",
   props: {
@@ -47,6 +53,7 @@ export default {
   },
   components: {
     Reply,
+    Comment
   },
   data() {
     return {
@@ -97,6 +104,3 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang='scss'>
-</style>

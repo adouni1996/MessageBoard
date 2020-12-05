@@ -14,13 +14,15 @@
       </el-popconfirm>
     </span>
     <i class="replybtn el-icon-edit-outline" @click=" showreplycomon = !showreplycomon"></i>
-    <div class="replycomon" v-if="showreplycomon">
-      <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea"></el-input>
-      <div class="btn">
-        <el-button @click="upReply">取消</el-button>
-        <el-button @click="upReply(true)" type="primary">确定</el-button>
+    <transition name="slide-fade" mode="out-in">
+      <div class="replycomon" v-if="showreplycomon">
+        <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea"></el-input>
+        <div class="btn">
+          <el-button @click="upReply">取消</el-button>
+          <el-button @click="upReply(true)" type="primary">确定</el-button>
+        </div>
       </div>
-    </div>
+    </transition>
   </span>
 </template>
 
@@ -38,7 +40,7 @@ export default {
     },
     gettest: {
       type: Function,
-      default: ()=>{},
+      default: () => {},
     },
   },
   data() {
@@ -67,4 +69,15 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+.slide-fade-enter-active {
+  transition: all 0.3s;
+}
+.slide-fade-leave-active {
+  transition: all 0.3s;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateY(10px);
+  opacity: 0;
+}
 </style>

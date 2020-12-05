@@ -1,11 +1,11 @@
 <template>
   <div>
-    <el-form ref="form" label-width="80px">
-      <el-form-item label="权限密钥">
-        <el-input v-model="key" type="password"></el-input>
+    <el-form ref="form" label-width="80px" @submit.native.prevent>
+      <el-form-item label="权限密钥" @submit.native.prevent>
+        <el-input v-model="key" @keyup.enter.native="debeunceopendel" type="password"></el-input>
       </el-form-item>
       <el-form-item label="删除键">
-        <el-button type="primary" @click="debeunceopendel">启用</el-button>
+        <el-button type="primary"  @click="debeunceopendel">启用</el-button>
         <el-button @click="del">禁用</el-button>
       </el-form-item>
     </el-form>

@@ -1,5 +1,7 @@
 <template>
-    
+    <div class='comment'>
+        1
+    </div>
 </template>
 
 <script>
